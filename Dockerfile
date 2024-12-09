@@ -17,10 +17,10 @@ LABEL maintainer="antman666@qq.com" \
 COPY container-files /
 COPY build.sh /root
 
-RUN apk --no-cache --update upgrade && \
-    apk add --no-cache wget ca-certificates bash curl && \
-    bash /root/build.sh && \
-    rm /root/build.sh && \
-    adduser -D aria2
+RUN apk --no-cache --update upgrade
+RUN apk add --no-cache wget ca-certificates bash curl
+RUN bash /root/build.sh
+RUN rm /root/build.sh
+RUN adduser -D aria2
 
 ENTRYPOINT ["/init"]
