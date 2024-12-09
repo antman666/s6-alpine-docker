@@ -56,7 +56,7 @@ echo -e "${INFO} Architecture: ${OS_ARCH} ${PKGT}"
 echo -e "${INFO} Get ${PROJECT_NAME} download URL ..."
 DOWNLOAD_ARCH_URL=$(curl -fsSL ${GH_API_URL} | grep 'browser_download_url' | cut -d'"' -f4 | grep "${FILE_KEYWORD}" | head -n 1)
 DOWNLOAD_NOARCH_URL=$(curl -fsSL ${GH_API_URL} | grep 'browser_download_url' | cut -d'"' -f4 | grep "noarch" | head -n 1)
-echo -e "${INFO} Download URL: ${DOWNLOAD_URL}"
+echo -e "${INFO} Download URL: ${DOWNLOAD_ARCH_URL}"
 
 cd /tmp
 echo -e "${INFO} Installing ${PROJECT_NAME} ..."
