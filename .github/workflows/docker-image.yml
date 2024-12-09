@@ -1,0 +1,46 @@
+name: Docker Images Publish
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v3
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+
+    - name: Login to DockerHub
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets.DOCKER_USER }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+
+    - name: Login to GitHub Container Registry
+      uses: docker/login-action@v3
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ github.token }}
+
+    - name: Build and push
+      uses: docker/build-push-action@v5
+      with:
+        platforms: linux/amd64,linux/386,linux/arm64,linux/arm/v7
+        file: Dockerfile
+        context: .
+        push: true
+        tags: |
+          antman666/s6-alpine
+          ghcr.io/antman666/s6-alpine
+          antman666/s6-alpine:${{ steps.getVersion.outputs.time }}
+          ghcr.io/antman666/s6-alpine:${{ steps.getVersion.outputs.time }}
