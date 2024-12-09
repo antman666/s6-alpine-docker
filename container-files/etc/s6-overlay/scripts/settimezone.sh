@@ -3,7 +3,7 @@
 set -e
 
 #User params
-TIMEZONE=${TZ:="UTC"}
+TIMEZONE=${TZ:="Asia/Shanghai"}
 
 # Set Timezone
 echo "${TIMEZONE}" > /etc/TZ
