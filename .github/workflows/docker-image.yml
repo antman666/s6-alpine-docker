@@ -42,5 +42,3 @@ jobs:
         tags: |
           antman666/s6-alpine
           ghcr.io/antman666/s6-alpine
-          antman666/s6-alpine:${{ steps.getVersion.outputs.time }}
-          ghcr.io/antman666/s6-alpine:${{ steps.getVersion.outputs.time }}
