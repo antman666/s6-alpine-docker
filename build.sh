@@ -2,7 +2,6 @@
 
 set -o errexit
 set -o errtrace
-set -o pipefail
 set -o nounset
 
 Green_font_prefix="\033[32m"
@@ -34,7 +33,7 @@ else
     OS_ARCH=$(uname -m)
 fi
 case ${OS_ARCH} in
-*86)
+x86)
     FILE_KEYWORD='i686'
     ;;
 x86_64 | amd64)
