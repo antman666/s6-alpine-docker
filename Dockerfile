@@ -20,7 +20,6 @@ COPY build.sh /root
 RUN apk --no-cache --update upgrade && \
     apk add --no-cache bash curl jq findutils && \
     bash /root/build.sh && \
-    rm /root/build.sh && \
-    adduser -D aria2
+    rm /root/build.sh
 
 ENTRYPOINT ["/init"]
