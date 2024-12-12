@@ -3,10 +3,10 @@ FROM alpine:latest
 ARG BUILD_DATE
 ARG VCS_REF
 
-LABEL maintainer="antman666@qq.com" \
+LABEL maintainer="Shikanawa@proton.me" \
     org.opencontainers.image.title="s6-alpine" \
     org.opencontainers.image.description="Alpine Base with S6 Overlay" \
-    org.opencontainers.image.authors="antman666@qq.com" \
+    org.opencontainers.image.authors="Shikanawa@proton.me" \
     org.opencontainers.image.vendor="Alpine" \
     org.opencontainers.image.documentation="https://docs.alpinelinux.org" \
     org.opencontainers.image.licenses="MIT" \
